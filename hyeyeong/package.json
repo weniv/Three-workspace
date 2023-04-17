@@ -1,0 +1,19 @@
+{
+  "name": "solarsystem",
+  "version": "1.0.0",
+  "description": "Three.js 초보자를 위한 케이크 만들기 예제입니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cd src && nodemon index.js"
+  },
+  "author": "hyeyeonglee",
+  "license": "MIT",
+  "devDependencies": {
+    "three": "^0.150.1"
+  },
+  "type": "module",
+  "dependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
