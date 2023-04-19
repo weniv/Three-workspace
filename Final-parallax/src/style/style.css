@@ -18,6 +18,7 @@ html {
   scroll-snap-type: y mandatory;
 }
 
+/* header */
 header {
   display: flex;
   flex-direction: column;
@@ -80,17 +81,17 @@ header a span {
 }
 
 main section {
+  background-color: palegoldenrod;
   position: relative;
-  padding: 5rem;
+  padding: 10rem 5rem;
   height: 100vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 3rem;
   scroll-snap-align: start;
 }
 main section div {
-  max-width: 30%;
+  background-color: pink;
 }
 main section h2 {
   font-size: 6rem;
@@ -100,7 +101,8 @@ main section p {
 }
 
 main canvas {
-  width: 50%;
+  width: 100%;
+  height: 100%;
 }
 
 #section01 {
@@ -135,8 +137,4 @@ footer {
   align-items: center;
   font-size: 1.6rem;
   background-color: #7ccad5;
-}
-
-canvas {
-  outline: 2px solid var(--ColorLight);
 }

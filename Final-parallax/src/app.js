@@ -1,65 +1,42 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import WebGL from "./WebGL.js";
+import mandarin from "./js/mandarin.js";
 
 if (WebGL.isWebGLAvailable()) {
-  // scene
   const scene = new THREE.Scene();
-
-  // camera
-  const camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-  );
-  camera.position.z = 1;
-
-  // renderer
+  const camera = new THREE.PerspectiveCamera(75, 1.3, 0.1, 1000);
   const renderer = new THREE.WebGLRenderer({
-    antialias: true, // 부드러워지지만 약간의 성능저하 발생
+    canvas: document.querySelector("#mandarin"),
+    antialias: true,
+    alpha: true,
   });
-  renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.setClearColor(0xffe187);
+  //   renderer.outputEncoding = THREE.sRGBEncoding;
   renderer.shadowMap.enabled = true;
-  // renderer.outputEncoding = THREE.sRGBEncoding;
-  document.body.appendChild(renderer.domElement);
+  renderer.setClearColor(0x000000, 0);
+  camera.position.set(0, 1, 1);
 
   // OrbitControls
   const controls = new OrbitControls(camera, renderer.domElement);
-  controls.minDistance = 3;
-  controls.maxDistance = 20;
+  controls.minDistance = 2.5;
+  controls.maxDistance = 5;
 
-  // light
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+  // ligth
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-  const hemisphereLight = new THREE.HemisphereLight(0xf16767, 0x3a98b9, 1);
-  const pointLight = new THREE.PointLight(0xff0000, 0.7, 100);
-  const rectAreaLight = new THREE.RectAreaLight(0xffffff, 1, 4, 4);
-  const spotLight = new THREE.SpotLight(
-    0xffffff,
-    0.5,
-    30,
-    Math.PI * 0.1,
-    0.1,
-    1
-  );
-  spotLight.position.set(0, 3, 5);
-  // directionalLight.castShadow = true;
-  // rectAreaLight.position.set(0, 1, 2);
-  const helper = new THREE.SpotLightHelper(spotLight);
-  // shadow
-  // directionalLight.castShadow = true;
-  // directionalLight.shadow.mapSize.width = 1024;
-  // directionalLight.shadow.mapSize.height = 1024;
-  // directionalLight.shadow.radius = 5;
+  const pointLight = new THREE.PointLight(0xffffff, 0.5);
+  pointLight.position.set(0, 3, 0);
+  pointLight.castShadow = true;
   scene.add(ambientLight);
-  // scene.add(helper);
+  scene.add(pointLight);
+
+  // mesh
+  scene.add(mandarin);
 
   const animate = () => {
     requestAnimationFrame(animate);
-    // controls.update();
+    mandarin.rotation.y += 0.01;
+    controls.update();
     renderer.render(scene, camera);
   };
   animate();
