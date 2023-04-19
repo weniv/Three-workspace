@@ -1,54 +1,72 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Final Project</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./node_modules/three/build/three.module.js",
+          "three/examples/jsm/controls/OrbitControls": "./node_modules/three/examples/jsm/controls/OrbitControls.js"
+        }
+      }
+    </script>
+    <script src="./src/app.js" type="module"></script>
+    <link rel="stylesheet" href="./src/style/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Final Project</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-
-<body>
-  <header>
-    <h1>혼저옵서예</h1>
-    <img src="" alt="">
-    <a href="#section01"><span></span></a>
-  </header>
-  <main>
-    <section id="section01">
-      <div class="description">
-        <h2>첫번째 특산물</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores aliquam nisi vitae. Ipsam a ea numquam et, neque maxime delectus?</p>
-      </div>
-      <canvas id="canvas01"></canvas>
-    </section>
-    <section id="section02">
-      <div class="description">
-        <h2>두번째 특산물</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero doloribus asperiores quos optio facere molestias autem ut possimus praesentium nisi!</p>
-      </div>
-      <canvas id="canvas02"></canvas>
-    </section>
-    <section id="section03">
-      <div class="description">
-        <h2>세번째 특산물</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero suscipit necessitatibus ullam quam quaerat? Eaque sunt repellat minima molestias debitis.</p>
-      </div>
-      <canvas id="canvas02"></canvas>
-    </section>
-    <section id="sectionFin">
-      <p class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error tempore qui aliquam debitis? Sapiente nulla incidunt quia mollitia suscipit reiciendis?</p>
-      <canvas id="canvasFin"></canvas>
-    </section>
-  </main>
-  <footer>
-    <p>Copyright 2023. <strong>WENIV</strong> All rights reserved.</p>
-  </footer>
-
-  <script>
-  </script>
-
-</body>
-
+  <body>
+    <header>
+      <h1>혼저옵서예</h1>
+      <img src="" alt="" />
+      <a href="#section01"><span></span></a>
+    </header>
+    <main>
+      <section id="section01">
+        <div class="description">
+          <h2>한라봉</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
+            aliquam nisi vitae. Ipsam a ea numquam et, neque maxime delectus?
+          </p>
+        </div>
+        <canvas id="mandarin"></canvas>
+      </section>
+      <section id="section02">
+        <div class="description">
+          <h2>한라산</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+            doloribus asperiores quos optio facere molestias autem ut possimus
+            praesentium nisi!
+          </p>
+        </div>
+        <canvas id="canvas02"></canvas>
+      </section>
+      <section id="section03">
+        <div class="description">
+          <h2>돌하르방</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+            suscipit necessitatibus ullam quam quaerat? Eaque sunt repellat
+            minima molestias debitis.
+          </p>
+        </div>
+        <canvas id="canvas02"></canvas>
+      </section>
+      <section id="sectionFin">
+        <p class="description">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error
+          tempore qui aliquam debitis? Sapiente nulla incidunt quia mollitia
+          suscipit reiciendis?
+        </p>
+        <canvas id="canvasFin"></canvas>
+      </section>
+    </main>
+    <footer>
+      <p>Copyright 2023. <strong>WENIV</strong> All rights reserved.</p>
+    </footer>
+  </body>
 </html>

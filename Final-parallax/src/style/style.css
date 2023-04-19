@@ -1,38 +1,45 @@
 @charset "UTF-8";
-@import './reset.css';
-@import './variables.css';
+@import "./reset.css";
+@import "./variables.css";
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
 
 @font-face {
-  font-family: 'EF_jejudoldam';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
+  font-family: "EF_jejudoldam";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2")
+    format("woff2");
   font-weight: normal;
   font-style: normal;
 }
+
 html {
   font-size: 62.5%;
+  overflow: scroll;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
 }
 
 header {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width:100vw;
-  height:100vh;
+  width: 100vw;
+  height: 100vh;
+  scroll-snap-align: start;
 }
 
 header h1 {
-  font-family: 'EF_jejudoldam';
+  font-family: "EF_jejudoldam";
   font-size: 14rem;
 }
 
 header a {
   padding-top: 70px;
 }
+
 header a span {
   position: absolute;
-  bottom:20rem;
+  bottom: 20rem;
   left: 50%;
   width: 24px;
   height: 24px;
@@ -73,12 +80,14 @@ header a span {
 }
 
 main section {
-  padding:5rem;
-  height:100vh;
-  display:flex;
+  position: relative;
+  padding: 5rem;
+  height: 100vh;
+  display: flex;
   justify-content: space-around;
-  align-items:center;
-  gap:3rem;
+  align-items: center;
+  gap: 3rem;
+  scroll-snap-align: start;
 }
 main section div {
   max-width: 30%;
@@ -87,50 +96,47 @@ main section h2 {
   font-size: 6rem;
 }
 main section p {
-  font-size:2rem;
+  font-size: 2rem;
 }
 
 main canvas {
-  width:50%
+  width: 50%;
 }
 
 #section01 {
-  box-shadow:0 -20px 20px #DFF1F4;
-  background-color: #DFF1F4
+  box-shadow: 0 -20px 20px #dff1f4;
+  background-color: #dff1f4;
 }
 
 #section02 {
   flex-direction: row-reverse;
-  background-color: #BEE4EA
+  background-color: #bee4ea;
 }
 
 #section03 {
   flex-direction: row-reverse;
-  background-color: #9ED7DF
-
+  background-color: #9ed7df;
 }
-
 
 #sectionFin {
   flex-direction: column;
   height: Calc(100vh - 60px);
-  background-color: #7CCAD5;
-
+  background-color: #7ccad5;
 }
 #sectionFin canvas {
-  width:80%;
-  height:80%;
+  width: 80%;
+  height: 80%;
 }
 
 footer {
-  height:60px;
-  display:flex;
+  height: 60px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  font-size:1.6rem;
-  background-color:#7CCAD5;
+  font-size: 1.6rem;
+  background-color: #7ccad5;
 }
 
-canvas{
-  outline:2px solid var(--ColorLight);
+canvas {
+  outline: 2px solid var(--ColorLight);
 }
