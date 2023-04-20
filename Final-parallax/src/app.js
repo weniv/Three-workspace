@@ -3,11 +3,17 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import WebGL from "./WebGL.js";
 import mandarin from "./js/mandarin.js";
 
+// geometry merge 관련 참고
+//stackoverflow.com/questions/8322759/how-can-i-bind-two-shapes-together-as-one-in-three-js
+// https://codepen.io/Gil_Nakar/pen/oBNJqa
+
 if (WebGL.isWebGLAvailable()) {
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, 1.3, 0.1, 1000);
+  const mandarinCanvas = document.querySelector("#mandarin");
+  const aspect = mandarinCanvas.clientWidth / mandarinCanvas.clientHeight;
+  const camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
   const renderer = new THREE.WebGLRenderer({
-    canvas: document.querySelector("#mandarin"),
+    canvas: mandarinCanvas,
     antialias: true,
     alpha: true,
   });
@@ -43,11 +49,12 @@ if (WebGL.isWebGLAvailable()) {
 
   // 반응형 처리
   const onWindowResize = () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    const canvas = renderer.domElement;
+    camera.aspect = canvas.innerWidth / canvas.innerHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(canvas.innerWidth, canvas.innerHeight);
   };
-  window.addEventListener("resize", onWindowResize);
+  renderer.domElement.addEventListener("resize", onWindowResize);
 } else {
   const warning = WebGL.getWebGLErrorMessage();
   document.getElementById("container").appendChild(warning);
