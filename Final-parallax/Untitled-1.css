@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/* @charset "UTF-8";
 @import "./reset.css";
 @import "./variables.css";
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
@@ -14,26 +14,12 @@
 html {
   font-size: 62.5%;
   overflow: scroll;
+  overflow-x: hidden;
   scroll-snap-type: y mandatory;
 }
 
-#canvas {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-main {
-  width: 100vw;
-  height: 100vh;
-  background-color: aliceblue;
-}
-
 /* header */
-header {
+/* header {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -95,22 +81,85 @@ header a span {
 }
 
 main section {
-  display: flex;
-  width: 100vw;
+  background-color: palegoldenrod;
+  position: relative;
+  padding: 10rem 5rem;
   height: 100vh;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 3rem;
   scroll-snap-align: start;
 }
-
-main section div.description {
-  width: 50vw;
-  background-color: azure;
+main section div {
+  width: 100%;
+  background-color: pink;
+}
+main section h2 {
+  font-size: 6rem;
+}
+main section p {
+  font-size: 2rem;
 }
 
-main section div.obj {
-  width: 50vw;
+main canvas {
+  width: 100%;
+  background-color: rgb(170, 238, 204);
+}
+
+#section01 {
+  box-shadow: 0 -20px 20px #dff1f4;
+  background-color: palegreen;
+}
+
+#section02 {
+  flex-direction: row-reverse;
+  background-color: #bee4ea;
+}
+
+#section03 {
+  flex-direction: row-reverse;
+  background-color: #9ed7df;
+}
+
+#sectionFin {
+  flex-direction: column;
+  height: Calc(100vh - 60px);
+  background-color: #7ccad5;
+}
+#sectionFin canvas {
+  width: 80%;
+  height: 80%;
+}
+
+footer {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  background-color: #7ccad5;
+}  */
+
+#canvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: -1;
+}
+.diagram {
+  display: inline-block;
+  width: 5em;
+  height: 3em;
   border: 1px solid black;
 }
-
+.left {
+  float: left;
+  margin-right: 0.25em;
+}
 .right {
   float: right;
   margin-left: 0.25em;
