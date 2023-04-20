@@ -3,13 +3,9 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import WebGL from "./WebGL.js";
 import mandarin from "./js/mandarin.js";
 
-// geometry merge 관련 참고
-//stackoverflow.com/questions/8322759/how-can-i-bind-two-shapes-together-as-one-in-three-js
-// https://codepen.io/Gil_Nakar/pen/oBNJqa
-
 if (WebGL.isWebGLAvailable()) {
   const scene = new THREE.Scene();
-  const mandarinCanvas = document.querySelector("#mandarin");
+  const mandarinCanvas = document.querySelector("#mandarinCanvas");
   const aspect = mandarinCanvas.clientWidth / mandarinCanvas.clientHeight;
   const camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
   const renderer = new THREE.WebGLRenderer({
@@ -17,15 +13,16 @@ if (WebGL.isWebGLAvailable()) {
     antialias: true,
     alpha: true,
   });
+
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  //   renderer.outputEncoding = THREE.sRGBEncoding;
+  // renderer.outputEncoding = THREE.sRGBEncoding;
   renderer.shadowMap.enabled = true;
   renderer.setClearColor(0x000000, 0);
-  camera.position.set(0, 1, 1);
+  camera.position.set(1.3, 1.8, 0.5);
 
   // OrbitControls
   const controls = new OrbitControls(camera, renderer.domElement);
-  controls.minDistance = 2.5;
+  controls.minDistance = 1.3;
   controls.maxDistance = 5;
 
   // ligth
