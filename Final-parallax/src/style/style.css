@@ -104,7 +104,7 @@ main section p {
 
 main canvas {
   width: 100%;
-  background-color: palegoldenrod;
+  background-color: rgb(170, 238, 204);
 }
 
 #section01 {
