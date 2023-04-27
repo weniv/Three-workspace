@@ -24,12 +24,13 @@ html {
   width: 100%;
   height: 100%;
   display: block;
+  z-index: 999;
 }
 
 main {
   width: 100vw;
   height: 100vh;
-  background-color: aliceblue;
+  background-color: #ffbfa9;
 }
 
 /* header */
@@ -99,14 +100,28 @@ main section {
   width: 100vw;
   height: 100vh;
   scroll-snap-align: start;
+  background-color: #ffbfa9;
 }
 
-main section #island {
+main #firstSection span {
+  position: absolute;
+  font-size: 100px;
+  color: #ffd93d;
+  /* background-color: pink; */
+  top: 50%;
+  /* left: 50vw; */
+}
+
+main #firstSection {
+  position: relative;
+}
+
+main #firstSection #island {
   display: flex;
   align-self: center;
   width: 60vw;
   height: 70vh;
-  background-color: aqua;
+  /* background-color: rgb(137, 241, 255); */
   margin: 0 auto;
 }
 

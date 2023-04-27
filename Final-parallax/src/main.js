@@ -29,10 +29,10 @@ if (WebGL.isWebGLAvailable()) {
         scene.add(pointLight);
       }
 
-      // OrbitControls => 현재 모든 요소가 같이 조작됨
-      const controls = new OrbitControls(camera, renderer.domElement);
-      controls.minDistance = 1.3;
-      controls.maxDistance = 5;
+      // OrbitControls => ⚠️현재 모든 요소가 같이 조작됨
+      // const controls = new OrbitControls(camera, renderer.domElement);
+      // controls.minDistance = 1.3;
+      // controls.maxDistance = 5;
 
       return { scene, camera, elem };
     };

@@ -47,9 +47,6 @@ const printJeju = () => {
     wrap.rotation.set(-1, 0, 0);
 
     text.add(wrap);
-    text.scale.set(0.22, 0.22, 0.22);
-    text.rotation.set(1, 0.1, 0);
-    text.position.set(2, 4, 11.5);
   });
 
   return text;

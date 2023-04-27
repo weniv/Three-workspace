@@ -62,9 +62,6 @@ const printTree = () => {
   leaf.position.set(-1.4, 0.5, 0);
   tree.position.y = -3;
 
-  tree.scale.set(0.6, 0.6, 0.6);
-  tree.rotation.set(0, 3.3, 0);
-  tree.position.set(10, 3, 5);
   return tree;
 };
 

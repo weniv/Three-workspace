@@ -209,10 +209,6 @@ const printHouse = () => {
   house.add(bell);
   house.add(wall);
 
-  house.rotation.set(0, -3.15, 0);
-  house.scale.set(2, 2, 2);
-  house.position.set(-6, 3, 1);
-
   return house;
 };
 
