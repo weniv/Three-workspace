@@ -1,6 +1,4 @@
 import * as THREE from "three";
-// import * as BufferGeometryUtils from "three/examples/jsm/utils/BufferGeometryUtils.js";
-// https://discourse.threejs.org/t/fail-to-import-buffergeometryutils/41056 보고 에러해결해라
 
 const printMandarin = () => {
   const mandarin = new THREE.Group();
