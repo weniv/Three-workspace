@@ -101,6 +101,15 @@ main section {
   scroll-snap-align: start;
 }
 
+main section #island {
+  display: flex;
+  align-self: center;
+  width: 60vw;
+  height: 70vh;
+  background-color: aqua;
+  margin: 0 auto;
+}
+
 main section div.description {
   width: 50vw;
   background-color: azure;

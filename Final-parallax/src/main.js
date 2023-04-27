@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import WebGL from "./WebGL.js";
+import islandMesh from "./js/island.js";
 import mandarinMesh from "./js/mandarin.js";
 import mountainMesh from "./js/mountain.js";
 
@@ -26,7 +27,19 @@ if (WebGL.isWebGLAvailable()) {
         scene.add(pointLight);
       }
 
+      // OrbitControls => 현재 모든 요소가 같이 조작됨
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.minDistance = 1.3;
+      controls.maxDistance = 5;
+
       return { scene, camera, elem };
+    };
+
+    const printIsland = () => {
+      const obj = makeScene(document.querySelector("#island"));
+      obj.scene.add(islandMesh);
+      obj.mesh = islandMesh;
+      return obj;
     };
 
     const printMandarin = () => {
@@ -43,6 +56,7 @@ if (WebGL.isWebGLAvailable()) {
       return obj;
     };
 
+    const island = printIsland();
     const mandarin = printMandarin();
     const mountain = printMountain();
 
@@ -106,6 +120,7 @@ if (WebGL.isWebGLAvailable()) {
       mandarin.mesh.rotation.y = time * 0.1;
       mountain.mesh.rotation.y = time * 0.1;
 
+      renderSceneInfo(island);
       renderSceneInfo(mandarin);
       renderSceneInfo(mountain);
 
