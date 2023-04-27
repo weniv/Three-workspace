@@ -26,7 +26,7 @@ rightCloud.position.set(8, 7, -3);
 cloudGrp.add(leftCloud);
 cloudGrp.add(rightCloud);
 
-cloudGrp.position.set(0, 0, -8);
+cloudGrp.position.set(0, 1, -8);
 
 const handleMove = (time) => {
   leftCloud.position.x = -8 + Math.sin(time * 0.7);
