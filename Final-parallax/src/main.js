@@ -4,6 +4,7 @@ import WebGL from "./WebGL.js";
 import islandMesh from "./js/island.js";
 import mandarinMesh from "./js/mandarin.js";
 import mountainMesh from "./js/mountain.js";
+import { handleMove } from "./js/cloud.js";
 
 if (WebGL.isWebGLAvailable()) {
   const main = () => {
@@ -101,7 +102,10 @@ if (WebGL.isWebGLAvailable()) {
       renderer.render(scene, camera);
     };
 
-    const animate = (sceneInfo) => {
+    let time = 0;
+    const animate = () => {
+      time += 0.01;
+      handleMove(time);
       requestAnimationFrame(animate);
     };
     animate();
