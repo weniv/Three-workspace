@@ -5,6 +5,7 @@ import islandMesh from "./js/island.js";
 import mandarinMesh from "./js/mandarin.js";
 import mountainMesh from "./js/mountain.js";
 import { handleMove } from "./js/cloud.js";
+import { handleGreeting, handleEyeMove } from "./js/stone.js";
 
 if (WebGL.isWebGLAvailable()) {
   const main = () => {
@@ -106,7 +107,11 @@ if (WebGL.isWebGLAvailable()) {
     const animate = () => {
       time += 0.01;
       handleMove(time);
+      handleGreeting(time);
       requestAnimationFrame(animate);
+      document.body.addEventListener("mousemove", (e) => {
+        handleEyeMove(e);
+      });
     };
     animate();
 

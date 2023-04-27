@@ -54,7 +54,6 @@ const axesHelper = new THREE.AxesHelper();
 plant.add(axesHelper);
 
 ground.add(islandGrp);
-ground.add(plantGrp);
-ground.position.set(0, -8, -15);
+// ground.add(plantGrp);
 
 export default ground;
