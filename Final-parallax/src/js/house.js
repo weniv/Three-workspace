@@ -43,19 +43,6 @@ const printHouse = () => {
   const door = new THREE.Mesh(doorGeometry, doorMaterial);
   door.position.set(0, -0.05, -1.38);
 
-  // 조명
-  const makeLight = () => {
-    const light = new THREE.PointLight(0xffffff);
-    light.position.set(0, 0, 0);
-    light.castShadow = true;
-    house.add(light);
-
-    const plHelper = new THREE.PointLightHelper(light, 0.1, 0x000000);
-    house.add(plHelper);
-  };
-
-  makeLight();
-
   // 물막이 Canopy
   const canopyGeometry = new THREE.BoxGeometry(1.75, 0.6, 0.05);
   const canopyMaterial = new THREE.MeshStandardMaterial({ color: 0xffacac });
@@ -76,84 +63,85 @@ const printHouse = () => {
   bell.position.set(1, 0.5, -1.4);
 
   // ✨담장 텍스처
+  const baseColor = loader.load("./src/static/img/Stone_Wall_008_COLOR.jpg");
   const longWallMaterial = [
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
   ];
 
   const shortWallMaterial = [
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
   ];
 
   const shortFrontWallMaterial = [
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: loader.load("../src/static/img/Stone_Wall_008_COLOR.jpg"),
+      map: baseColor,
     }),
   ];
 
@@ -215,12 +203,8 @@ const printHouse = () => {
   wall.add(wall_front_left);
   wall.position.set(0, 0, 0.15);
 
-  // house.add(box);
   house.add(roof);
   house.add(door);
-  // house.add(windowBig);
-  // house.add(windowSmall_right);
-  // house.add(windowSmall_left);
   house.add(canopy);
   house.add(frame);
   house.add(bell);
@@ -241,4 +225,17 @@ const printHouse = () => {
   return house;
 };
 
-export default printHouse();
+const light = new THREE.PointLight(0xffffff);
+light.position.set(0, 0, 0);
+light.castShadow = true;
+
+// 조명
+const lightOn = (house) => {
+  house.add(light);
+};
+
+const lightOff = (house) => {
+  house.remove(light);
+};
+
+export { lightOn, lightOff, printHouse };

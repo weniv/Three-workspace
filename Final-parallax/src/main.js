@@ -17,7 +17,6 @@ if (WebGL.isWebGLAvailable()) {
       const aspect = canvas.clientWidth / canvas.clientHeight;
       const camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
       camera.position.set(0, 1, 2);
-      //   camera.position.set(1.3, 1.8, 0.5);
       camera.lookAt(0, 0, 0);
 
       {

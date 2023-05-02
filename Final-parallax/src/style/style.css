@@ -25,24 +25,18 @@ html {
   width: 100%;
   height: 100%;
   display: block;
-  z-index: 999;
+  z-index: -1;
 }
 
 main {
   width: 100vw;
   height: 100vh;
-  background-color: #ffbfa9;
+  /* background-color: #ffbfa9; */
 }
 
 /* header */
 header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  scroll-snap-align: start;
+  position: fixed;
 }
 
 header h1 {
@@ -101,28 +95,12 @@ main section {
   width: 100vw;
   height: 100vh;
   scroll-snap-align: start;
-  background-color: #a8d9ec;
+  z-index: -2;
 }
 
 /* 작업을 위헤 지워둠 */
 #mandarin {
   display: none;
-}
-
-main #firstSection span {
-  position: absolute;
-  font-family: "EF_jejudoldam";
-  font-size: 18rem;
-  color: #fff;
-  top: 43vh;
-}
-
-main #firstSection span#je {
-  left: 9rem;
-}
-
-main #firstSection span#ju {
-  right: 9rem;
 }
 
 main #firstSection {
@@ -134,7 +112,6 @@ main #firstSection #island {
   align-self: center;
   width: 60vw;
   height: 70vh;
-  /* background-color: rgb(137, 241, 255); */
   margin: 0 auto;
 }
 
