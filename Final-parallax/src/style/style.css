@@ -104,6 +104,11 @@ main section {
   background-color: #a8d9ec;
 }
 
+/* 작업을 위헤 지워둠 */
+#mandarin {
+  display: none;
+}
+
 main #firstSection span {
   position: absolute;
   font-family: "EF_jejudoldam";
@@ -113,11 +118,11 @@ main #firstSection span {
 }
 
 main #firstSection span#je {
-  left: 10rem;
+  left: 9rem;
 }
 
 main #firstSection span#ju {
-  right: 10rem;
+  right: 9rem;
 }
 
 main #firstSection {
@@ -146,4 +151,13 @@ main section div.obj {
 .right {
   float: right;
   margin-left: 0.25em;
+}
+
+main section#objWrap {
+  background-color: pink;
+}
+
+main section#objWrap .obj {
+  height: 70%;
+  background-color: #fff;
 }
