@@ -2,7 +2,8 @@ import * as THREE from "three";
 import ground from "./ground.js";
 import { cloudGrp } from "./cloud.js";
 import { dolhareubangGrp } from "./stone.js";
-import house from "./house.js";
+import { printHouse } from "./house.js";
+import { lightOn, lightOff } from "./house.js";
 import text from "./jeju.js";
 import tree from "./tree.js";
 import mandarin from "./mandarin.js";
@@ -17,6 +18,7 @@ const printIsland = () => {
   let dolhareubangClone = dolhareubangGrp.clone();
   let treeCloneOne = tree.clone();
   let treeCloneTwo = tree.clone();
+  let house = printHouse();
 
   island.add(text);
   island.add(treeCloneOne);
@@ -66,6 +68,23 @@ const printIsland = () => {
   // 전체 섬 조작
   island.position.set(0, -8, -15);
   island.rotation.set(-0.2, 0, 0);
+
+  // 섬 다크모드 적용
+  const $button = document.querySelector("#lightmode");
+  let $background = document.querySelector("#firstSection");
+
+  $button.addEventListener("click", () => {
+    if ($button.classList.contains("light")) {
+      $button.innerHTML = "dark";
+      $background.style.backgroundColor = "#ffffff";
+      lightOff(house);
+    } else {
+      $button.innerHTML = "light";
+      $background.style.backgroundColor = "#000000";
+      lightOn(house);
+    }
+    $button.classList.toggle("light");
+  });
 
   return island;
 };

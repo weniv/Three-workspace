@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { CSG } from "../three-csg.js";
 
 const printHouse = () => {
   const house = new THREE.Group();
@@ -6,137 +7,141 @@ const printHouse = () => {
   const loader = new THREE.TextureLoader();
   // 집 몸통
   const boxGeometry = new THREE.BoxGeometry(2.8, 1.5, 2.8);
-  const boxMaterial = new THREE.MeshBasicMaterial({ color: 0xf9f5eb });
+  const boxMaterial = new THREE.MeshStandardMaterial({ color: 0xf9f5eb });
   const box = new THREE.Mesh(boxGeometry, boxMaterial);
   // 지붕
   const roofGeometry = new THREE.ConeGeometry(2.2, 0.8, 4);
-  const roofMaterial = new THREE.MeshBasicMaterial({
+  const roofMaterial = new THREE.MeshStandardMaterial({
     color: 0xea5455,
+    // map: loader.load("../src/static/img/roof_basecolor.jpg"),
   });
   const roof = new THREE.Mesh(roofGeometry, roofMaterial);
   roof.rotation.set(0, 0.79, 0);
   roof.position.set(0, 1.15, 0);
+  // 대문 doorSubtract
+  const doorSubtractGeometry = new THREE.BoxGeometry(1.5, 1.3, 5);
+  const doorGeometry = new THREE.BoxGeometry(1.5, 1.4, 0.01);
+  const doorSubtractMaterial = new THREE.MeshStandardMaterial({
+    color: 0xffdd83,
+  });
+  const doorMaterial = new THREE.MeshPhysicalMaterial({
+    color: 0xffffff,
+    metalness: 0.1,
+    roughness: 0.05,
+    ior: 2.5,
+    thickness: 0.2,
+    transmission: 1,
+    side: THREE.DoubleSide,
+  });
+
+  const doorSubtract = new THREE.Mesh(
+    doorSubtractGeometry,
+    doorSubtractMaterial
+  );
+  doorSubtract.position.set(0, -0.05, -1.38);
   // 대문
-  const doorGeometry = new THREE.BoxGeometry(0.6, 1.4, 0.1);
-  const doorMaterial = new THREE.MeshBasicMaterial({ color: 0xffdd83 });
   const door = new THREE.Mesh(doorGeometry, doorMaterial);
   door.position.set(0, -0.05, -1.38);
-  // 큰 창문
-  const windowBigGeometry = new THREE.BoxGeometry(0.7, 1.4, 0.1);
-  const windowMaterial = new THREE.MeshBasicMaterial({ color: 0xc9eeff });
-  const windowBig = new THREE.Mesh(windowBigGeometry, windowMaterial);
-  windowBig.position.set(-0.655, -0.05, -1.38);
-  // 작은 창문_오른쪽
-  const windowsmallGeometry = new THREE.BoxGeometry(0.25, 1.4, 0.1);
-  const windowSmall_right = new THREE.Mesh(windowsmallGeometry, windowMaterial);
-  windowSmall_right.position.set(0.43, -0.05, -1.38);
-  // 작은 창문_왼쪽
-  const windowsmall_leftGeometry = new THREE.BoxGeometry(0.2, 1.4, 0.1);
-  const windowSmall_left = new THREE.Mesh(
-    windowsmall_leftGeometry,
-    windowMaterial
-  );
-  windowSmall_left.position.set(0.65, -0.05, -1.38);
+
   // 물막이 Canopy
   const canopyGeometry = new THREE.BoxGeometry(1.75, 0.6, 0.05);
-  const canopyMaterial = new THREE.MeshBasicMaterial({ color: 0xffacac });
+  const canopyMaterial = new THREE.MeshStandardMaterial({ color: 0xffacac });
   const canopy = new THREE.Mesh(canopyGeometry, canopyMaterial);
   canopy.position.set(-0.13, 0.65, -1.5);
   canopy.rotation.set(1.2, 0, 0);
   // 앨범
   const frameGeometry = new THREE.BoxGeometry(0.2, 0.3, 0.05);
-  const frameMaterial = new THREE.MeshBasicMaterial({ color: 0xffacac });
+  const frameMaterial = new THREE.MeshStandardMaterial({ color: 0xffacac });
   const frame = new THREE.Mesh(frameGeometry, frameMaterial);
   frame.position.set(1, 0.2, -1.4);
   // 초인종
   const bellGeometry = new THREE.BoxGeometry(0.08, 0.1, 0.05);
-  const bellMaterial = new THREE.MeshBasicMaterial({
+  const bellMaterial = new THREE.MeshStandardMaterial({
     color: 0xffdd83,
   });
   const bell = new THREE.Mesh(bellGeometry, bellMaterial);
-  bell.position.set(1, 0.6, -1.4);
-
-  const wallBase = loader.load("./src/static/img/Stone_Wall_008_COLOR.jpg");
+  bell.position.set(1, 0.5, -1.4);
 
   // ✨담장 텍스처
+  const baseColor = loader.load("./src/static/img/Stone_Wall_008_COLOR.jpg");
   const longWallMaterial = [
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
   ];
 
   const shortWallMaterial = [
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
   ];
 
   const shortFrontWallMaterial = [
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0xa9907e,
-      map: wallBase,
+      map: baseColor,
     }),
   ];
 
@@ -198,18 +203,39 @@ const printHouse = () => {
   wall.add(wall_front_left);
   wall.position.set(0, 0, 0.15);
 
-  house.add(box);
   house.add(roof);
   house.add(door);
-  house.add(windowBig);
-  house.add(windowSmall_right);
-  house.add(windowSmall_left);
   house.add(canopy);
   house.add(frame);
   house.add(bell);
   house.add(wall);
 
+  box.updateMatrix();
+  doorSubtract.updateMatrix();
+
+  let bspBox = CSG.fromMesh(box);
+  let bspDoor = CSG.fromMesh(doorSubtract);
+
+  let bspResult = bspBox.subtract(bspDoor);
+
+  let meshResult = CSG.toMesh(bspResult, box.matrix, doorSubtract.material);
+
+  house.add(meshResult);
+
   return house;
 };
 
-export default printHouse();
+const light = new THREE.PointLight(0xffffff);
+light.position.set(0, 0, 0);
+light.castShadow = true;
+
+// 조명
+const lightOn = (house) => {
+  house.add(light);
+};
+
+const lightOff = (house) => {
+  house.remove(light);
+};
+
+export { lightOn, lightOff, printHouse };
