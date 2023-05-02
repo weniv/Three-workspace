@@ -1,0 +1,184 @@
+@charset "UTF-8";
+@import "./reset.css";
+@import "./variables.css";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+#canvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: -1;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  z-index: -3;
+}
+
+/* header */
+header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 6vh;
+  background-color: white;
+  padding: 0 20rem;
+}
+
+header nav {
+  display: flex;
+  width: 100%;
+  position: relative;
+  justify-content: space-between;
+}
+
+header ul {
+  display: flex;
+  gap: 2rem;
+}
+
+header ul.nav_menu {
+  /* background-color: rgb(189, 47, 254); */
+}
+
+header ul.nav_icon {
+  /* background-color: aqua; */
+}
+
+/* 이거 뭔지 알아보기 */
+/* @-webkit-keyframes scrollDown {
+  0% {
+    -webkit-transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
+}
+@keyframes scrollDown {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
+} */
+
+main section {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  scroll-snap-align: start;
+  /* padding-top: 6vh; */
+  z-index: -2;
+}
+
+/* island */
+main #firstSection {
+  position: relative;
+}
+
+main #firstSection #island {
+  display: flex;
+  align-self: center;
+  width: 60vw;
+  height: 70vh;
+  margin: 0 auto;
+}
+
+/* section 01 */
+main section#wrap {
+  display: flex;
+  align-items: center;
+}
+
+main section#wrap ul {
+  display: flex;
+  width: 100%;
+  height: 50vh;
+  padding: 5rem 20rem;
+  justify-content: space-between;
+  gap: 5rem;
+}
+
+main section#wrap ul li {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* background-color: rgb(151, 206, 255); */
+  border-radius: 10px;
+}
+
+main section#wrap ul p {
+  font-size: 1.5rem;
+  padding-top: 1rem;
+}
+
+main section#wrap ul div.border {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* section 02 */
+main section#detail {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  background-color: aquamarine;
+}
+
+main section#detail div.objWrap {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  height: 60vh;
+  border: 1px solid darkblue;
+}
+
+main section#detail div.objWrap ul {
+  background-color: powderblue;
+}
+
+main section#detail div.objWrap div.obj {
+  background-color: pink;
+}
+
+/* footer */
+footer {
+  width: 100%;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
