@@ -44,21 +44,21 @@ if (WebGL.isWebGLAvailable()) {
     };
 
     const printMandarin = () => {
-      const obj = makeScene(document.querySelector("#mandarin"));
+      const obj = makeScene(document.querySelector(".mandarin"));
       obj.scene.add(mandarinMesh);
       obj.mesh = mandarinMesh;
       return obj;
     };
 
     const printMountain = () => {
-      const obj = makeScene(document.querySelector("#mountain"));
+      const obj = makeScene(document.querySelector(".mountain"));
       obj.scene.add(mountainMesh);
       obj.mesh = mountainMesh;
       return obj;
     };
 
     const printStone = () => {
-      const obj = makeScene(document.querySelector("#stone"));
+      const obj = makeScene(document.querySelector(".stone"));
       obj.scene.add(dolhareubangGrp);
       obj.mesh = dolhareubangGrp;
       return obj;
@@ -133,8 +133,8 @@ if (WebGL.isWebGLAvailable()) {
       renderer.clear(true, true);
       renderer.setScissorTest(true);
 
-      mandarin.mesh.rotation.y = time * 0.1;
-      mountain.mesh.rotation.y = time * 0.1;
+      // mandarin.mesh.rotation.y = time * 0.1;
+      // mountain.mesh.rotation.y = time * 0.1;
 
       renderSceneInfo(island);
       renderSceneInfo(mandarin);
