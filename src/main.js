@@ -8,6 +8,8 @@ import { handleMove } from "./js/cloud.js";
 import { dolhareubangGrp, handleGreeting, handleEyeMove } from "./js/stone.js";
 
 if (WebGL.isWebGLAvailable()) {
+  // color
+  const white = 0xffffff;
   const main = () => {
     const canvas = document.querySelector("#canvas");
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
@@ -22,8 +24,9 @@ if (WebGL.isWebGLAvailable()) {
       camera.lookAt(0, 0, 0);
 
       {
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-        const pointLight = new THREE.PointLight(0xffffff, 0.5);
+        const ambientLight = new THREE.AmbientLight(white, 0.5);
+        const pointLight = new THREE.PointLight(white, 0.5);
+
         pointLight.position.set(0, 3, 0);
         pointLight.castShadow = true;
         pointLight.shadow.mapSize.width = 1024;
@@ -33,10 +36,10 @@ if (WebGL.isWebGLAvailable()) {
       }
 
       // OrbitControls => ⚠️현재 모든 요소가 같이 조작됨
-      const controls = new OrbitControls(camera, renderer.domElement);
+      // const controls = new OrbitControls(camera, renderer.domElement);
       // controls.minDistance = 1.3;
       // controls.maxDistance = 5;
-      // scene.add(controls)
+      // scene.add(controls);
 
       return { scene, camera, elem };
     };

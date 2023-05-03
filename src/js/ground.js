@@ -4,19 +4,19 @@ const printGround = () => {
   // 땅
   const ground = new THREE.Group();
   const plantMateiral = new THREE.MeshStandardMaterial({
-    color: 0x6CA06E,
+    color: 0x6ca06e,
     side: THREE.DoubleSide,
-  })
+  });
   const soilMaterial = new THREE.MeshStandardMaterial({
-    color: 0xDEB887
-  })
+    color: 0xdeb887,
+  });
   const plantGeometry = new THREE.CylinderGeometry(9, 9, 0.5, 9);
   const plant = new THREE.Mesh(plantGeometry, plantMateiral);
   plant.scale.x = 2;
   plant.receiveShadow = true;
   ground.add(plant);
 
-  const soilGeometry = new THREE.ConeGeometry(9, 10, 9)
+  const soilGeometry = new THREE.ConeGeometry(9, 10, 9);
   const soil = new THREE.Mesh(soilGeometry, soilMaterial);
   soil.rotation.z = Math.PI;
   soil.scale.x = 2;

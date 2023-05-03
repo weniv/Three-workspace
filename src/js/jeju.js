@@ -5,7 +5,6 @@ import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 const printJeju = () => {
   const text = new THREE.Group();
   const fontLoader = new FontLoader();
-  const textureLoader = new THREE.TextureLoader();
 
   fontLoader.load("./src/static/font/font.json", (font) => {
     const geometry = new TextGeometry("HELLO JEJU", {
@@ -19,32 +18,18 @@ const printJeju = () => {
       bevelSegments: 2,
     });
 
-    const ballg = new THREE.SphereGeometry(1, 32, 16);
-
-    // texture: 돌 혹은 풀 질감 추가하고싶음
-    // const textureBaseColor = textureLoader.load(
-    //   "../src/static/img/Hedge_BaseColor.jpg"
-    // );
-    // const textureHeightMap = textureLoader.load(
-    //   "../src/static/img/Hedge_Height.png"
-    // );
-    // const textureRoughnessMap = textureLoader.load(
-    //   "../src/static/img/Hedge_Roughness.jpg"
-    // );
-
     const meterial = new THREE.MeshStandardMaterial({
       color: 0x609966,
-      //   map: textureBaseColor,
-      //   displacementMap: textureHeightMap,
-      //   displacementScale: 0.1,
-      //   roughnessMap: textureRoughnessMap,
     });
     const wrap = new THREE.Mesh(geometry, meterial);
-    const box = new THREE.Mesh(ballg, meterial);
     wrap.position.set(-15, -5, 0);
     wrap.rotation.set(-1, 0, 0);
 
     text.add(wrap);
+
+    // shadow
+    // text.castShadow = true;
+    // text.receiveShadow = true;
   });
 
   return text;
