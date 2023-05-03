@@ -13,7 +13,6 @@ const printGround = () => {
   const plantGeometry = new THREE.CylinderGeometry(9, 9, 0.5, 9);
   const plant = new THREE.Mesh(plantGeometry, plantMateiral);
   plant.scale.x = 2;
-  plant.castShadow = true;
   plant.receiveShadow = true;
   ground.add(plant);
 
