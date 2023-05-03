@@ -33,4 +33,8 @@ const handleMove = (time) => {
   rightCloud.position.x = 8 + Math.sin(time * 0.2);
 };
 
+// shadow
+cloudGrp.castShadow = true;
+cloudGrp.receiveShadow = true;
+
 export { cloudGrp, handleMove };

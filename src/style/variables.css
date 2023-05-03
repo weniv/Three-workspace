@@ -1,7 +1,6 @@
-:root {
+/* :root {
 	--borderRadius: 0.4rem;
 
-	/* color */
 	--ColorWhite: #fff;
 	--ColorBg: #3b4e7e;
 	--ColorDark: #000;
@@ -14,4 +13,12 @@
 	--codeText: #ffd700;
 	--codeSyntex: #569cd6;
 	--codeBuiltinfunction: #a76dff;
+} */
+
+:root {
+  --ColorWhite: hsl(0, 0%, 100%);
+  --ColorDark: hsl(0, 0%, 20%);
+  --TextColor: hsl(0, 0%, 20%);
+  --SubColor: hsl(0, 0%, 40%);
+  --callout-bg-color: hsl(0, 0%, 90%);
 }

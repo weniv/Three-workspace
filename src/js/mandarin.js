@@ -56,6 +56,8 @@ const printMandarin = () => {
   leaf.castShadow = true;
   mergeCircle.castShadow = true;
   mergeCircle.receiveShadow = true;
+  mandarin.castShadow = true;
+  mandarin.receiveShadow = true;
 
   return mandarin;
 };
