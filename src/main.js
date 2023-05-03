@@ -11,6 +11,8 @@ if (WebGL.isWebGLAvailable()) {
   const main = () => {
     const canvas = document.querySelector("#canvas");
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    renderer.shadowMap.enabled = true;
+
 
     const makeScene = (elem) => {
       const scene = new THREE.Scene();
@@ -24,6 +26,8 @@ if (WebGL.isWebGLAvailable()) {
         const pointLight = new THREE.PointLight(0xffffff, 0.5);
         pointLight.position.set(0, 3, 0);
         pointLight.castShadow = true;
+        pointLight.shadow.mapSize.width = 1024;
+        pointLight.shadow.mapSize.height = 1024;
         scene.add(ambientLight);
         scene.add(pointLight);
       }

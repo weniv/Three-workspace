@@ -23,6 +23,10 @@ const printTree = () => {
   trunk.add(trunk_2);
   trunk.add(trunk_3);
   trunk.add(trunk_4);
+  for (const mesh of trunk.children) {
+    mesh.castShadow = true
+  }
+
 
   // 잎
   const leafGeometry_1 = new THREE.SphereGeometry(2, 32, 16, Math.PI * 0.5, 1);
@@ -54,6 +58,9 @@ const printTree = () => {
   leaf.add(leaf_2);
   leaf.add(leaf_3);
   leaf.add(leaf_4);
+  for (const mesh of leaf.children) {
+    mesh.castShadow = true
+  }
 
   tree.add(trunk);
   tree.add(leaf);
@@ -61,6 +68,8 @@ const printTree = () => {
   leaf.rotation.set(0, 0, -0.3);
   leaf.position.set(-1.4, 0.5, 0);
   tree.position.y = -3;
+
+
 
   return tree;
 };
