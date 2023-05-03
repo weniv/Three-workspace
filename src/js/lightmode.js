@@ -6,6 +6,7 @@ const $button = document.querySelector(".lightmode");
 let $header = document.querySelector("header");
 let $background = document.querySelector("body");
 const $text = document.querySelectorAll("p");
+const $pre = document.querySelectorAll("pre");
 const $border = document.querySelectorAll(".border");
 const $link = document.querySelectorAll("a");
 
@@ -15,7 +16,6 @@ $button.addEventListener("click", () => {
     $background.style.backgroundColor = "#fff";
     $header.style.backgroundColor = "#fff";
     $text.forEach((el) => (el.style.color = "#000"));
-    $link.forEach((el) => (el.style.color = "#000"));
     $border.forEach((el) => (el.style.border = "1px solid #000"));
 
     lightOff(house);
