@@ -15,7 +15,6 @@ if (WebGL.isWebGLAvailable()) {
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
     renderer.shadowMap.enabled = true;
 
-
     const makeScene = (elem) => {
       const scene = new THREE.Scene();
       const aspect = canvas.clientWidth / canvas.clientHeight;
@@ -53,8 +52,9 @@ if (WebGL.isWebGLAvailable()) {
 
     const printMandarin = () => {
       const obj = makeScene(document.querySelector(".mandarin"));
-      obj.scene.add(mandarinMesh);
-      obj.mesh = mandarinMesh;
+      const madarinClone = mandarinMesh.clone();
+      obj.scene.add(madarinClone);
+      obj.mesh = madarinClone;
       return obj;
     };
 
@@ -140,6 +140,13 @@ if (WebGL.isWebGLAvailable()) {
       renderer.setScissorTest(false);
       renderer.clear(true, true);
       renderer.setScissorTest(true);
+
+      // 오브젝트 조작
+      mandarin.mesh.position.set(0, -0.2, 0);
+      mountain.mesh.position.set(0, 0.2, -1);
+      mountain.mesh.rotation.set(0.2, 0, 0);
+      stone.mesh.position.set(0, -4.5, -5);
+      stone.mesh.rotation.set(0, 0, 0);
 
       // mandarin.mesh.rotation.y = time * 0.1;
       // mountain.mesh.rotation.y = time * 0.1;

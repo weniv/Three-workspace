@@ -28,8 +28,8 @@ const printJeju = () => {
     text.add(wrap);
 
     // shadow
-    // text.castShadow = true;
-    // text.receiveShadow = true;
+    text.castShadow = true;
+    text.receiveShadow = true;
   });
 
   return text;
