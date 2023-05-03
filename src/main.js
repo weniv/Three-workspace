@@ -29,9 +29,10 @@ if (WebGL.isWebGLAvailable()) {
       }
 
       // OrbitControls => ⚠️현재 모든 요소가 같이 조작됨
-      // const controls = new OrbitControls(camera, renderer.domElement);
+      const controls = new OrbitControls(camera, renderer.domElement);
       // controls.minDistance = 1.3;
       // controls.maxDistance = 5;
+      // scene.add(controls)
 
       return { scene, camera, elem };
     };
