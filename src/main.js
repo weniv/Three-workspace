@@ -197,6 +197,21 @@ if (WebGL.isWebGLAvailable()) {
       mandarin_two.mesh.rotation.y = time * 0.1;
       mountain_two.mesh.rotation.y = time * 0.1;
 
+      // 버튼 클릭시 실행되는 애니메이션
+      // const mandarinBtn = document.querySelector(".handleMandarin");
+      // const mountainBtn = document.querySelector(".handleMountain");
+      // const stoneBtn = document.querySelector(".handleStone");
+
+      // mandarinBtn.addEventListener("click", () => {
+      //   console.log("clicked mandarin btn");
+      // });
+      // mountainBtn.addEventListener("click", () => {
+      //   console.log("clicked mountain btn");
+      // });
+      // stoneBtn.addEventListener("click", () => {
+      //   console.log("clicked stone btn");
+      // });
+
       renderSceneInfo(island);
       renderSceneInfo(mountain_one);
       renderSceneInfo(mountain_two);

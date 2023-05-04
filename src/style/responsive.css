@@ -14,13 +14,13 @@
   }
 
   /* first section */
-  main section#firstSection ul {
-    gap: 2rem;
-    height: 50%;
+  main section#firstSection ul.contWrap {
+    height: 40%;
   }
 
   /* second section */
   main section#secondSection div.objWrap {
+    width: 100%;
     height: 40vh;
   }
   main section#secondSection div.objWrap ul {
