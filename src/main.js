@@ -50,32 +50,61 @@ if (WebGL.isWebGLAvailable()) {
       return obj;
     };
 
-    const printMandarin = () => {
-      const obj = makeScene(document.querySelector(".mandarin"));
+    const printMandarinOne = () => {
+      const obj = makeScene(document.querySelector(".mandarin_one"));
       const madarinClone = mandarinMesh.clone();
       obj.scene.add(madarinClone);
       obj.mesh = madarinClone;
       return obj;
     };
 
-    const printMountain = () => {
-      const obj = makeScene(document.querySelector(".mountain"));
-      obj.scene.add(mountainMesh);
-      obj.mesh = mountainMesh;
+    const printMandarinTwo = () => {
+      const obj = makeScene(document.querySelector(".mandarin_two"));
+      const madarinClone = mandarinMesh.clone();
+      obj.scene.add(madarinClone);
+      obj.mesh = madarinClone;
       return obj;
     };
 
-    const printStone = () => {
-      const obj = makeScene(document.querySelector(".stone"));
-      obj.scene.add(dolhareubangGrp);
-      obj.mesh = dolhareubangGrp;
+    const printMountainOne = () => {
+      const obj = makeScene(document.querySelector(".mountain_one"));
+      const mountainClone = mountainMesh.clone();
+      obj.scene.add(mountainClone);
+      obj.mesh = mountainClone;
+      return obj;
+    };
+
+    const printMountainTwo = () => {
+      const obj = makeScene(document.querySelector(".mountain_two"));
+      const mountainClone = mountainMesh.clone();
+      obj.scene.add(mountainClone);
+      obj.mesh = mountainClone;
+      return obj;
+    };
+
+    const printStoneOne = () => {
+      const obj = makeScene(document.querySelector(".stone_one"));
+      const stoneClone = dolhareubangGrp.clone();
+      obj.scene.add(stoneClone);
+      obj.mesh = stoneClone;
+      return obj;
+    };
+
+    const printStoneTwo = () => {
+      const obj = makeScene(document.querySelector(".stone_two"));
+      const stoneClone = dolhareubangGrp.clone();
+      obj.scene.add(stoneClone);
+      obj.mesh = stoneClone;
       return obj;
     };
 
     const island = printIsland();
-    const mandarin = printMandarin();
-    const mountain = printMountain();
-    const stone = printStone();
+    const mountain_one = printMountainOne();
+    const mountain_two = printMountainTwo();
+    const mandarin_one = printMandarinOne();
+    const mandarin_two = printMandarinTwo();
+    const stone_one = printStoneOne();
+    const stone_two = printStoneTwo();
 
     // 반응형 처리
     const onWindowResize = (renderer, sceneInfo) => {
@@ -133,7 +162,7 @@ if (WebGL.isWebGLAvailable()) {
     const render = (time) => {
       time *= 0.001;
 
-      const obj = { mandarin, mountain };
+      const obj = { island, mandarin_two, mountain_two };
 
       onWindowResize(renderer, obj);
 
@@ -142,19 +171,28 @@ if (WebGL.isWebGLAvailable()) {
       renderer.setScissorTest(true);
 
       // 오브젝트 조작
-      mandarin.mesh.position.set(0, -0.2, 0);
-      mountain.mesh.position.set(0, 0.2, -1);
-      mountain.mesh.rotation.set(0.2, 0, 0);
-      stone.mesh.position.set(0, -4.5, -5);
-      stone.mesh.rotation.set(0, 0, 0);
+      mandarin_one.mesh.position.set(0, -0.1, 0.1);
+      mountain_one.mesh.position.set(0, 0, -1.2);
+      mountain_one.mesh.rotation.set(0.2, 0, 0);
+      stone_one.mesh.position.set(0, -5, -6);
 
-      // mandarin.mesh.rotation.y = time * 0.1;
-      // mountain.mesh.rotation.y = time * 0.1;
+      mountain_two.mesh.position.set(0, 0.2, -1);
+      mountain_two.mesh.rotation.set(0.2, 0, 0);
+      stone_two.mesh.position.set(0, -4.5, -5);
+      stone_two.mesh.rotation.set(0, 0, 0);
+      mandarin_two.mesh.position.set(0, -0.2, 0);
+
+      // 애니메이션
+      mandarin_two.mesh.rotation.y = time * 0.1;
+      mountain_two.mesh.rotation.y = time * 0.1;
 
       renderSceneInfo(island);
-      renderSceneInfo(mandarin);
-      renderSceneInfo(mountain);
-      renderSceneInfo(stone);
+      renderSceneInfo(mountain_one);
+      renderSceneInfo(mountain_two);
+      renderSceneInfo(mandarin_one);
+      renderSceneInfo(mandarin_two);
+      renderSceneInfo(stone_one);
+      renderSceneInfo(stone_two);
 
       requestAnimationFrame(render);
     };
