@@ -27,6 +27,10 @@
     margin: 0 0 2.5rem 0;
     gap: 5rem;
   }
+
+  main section#secondSection div.objWrap ul li p.title {
+    padding-bottom: 1rem;
+  }
 }
 
 @media screen and (min-width: 1441px) {

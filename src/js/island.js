@@ -64,8 +64,6 @@ const printIsland = () => {
   text.position.set(-0.5, 1.3, 9);
 
   // 전체 섬 조작
-  console.log(matchMedia("screen and (901px <= width <= 1024px)").matches);
-  console.log(matchMedia("screen and (max-width: 900px)").matches);
   island.rotation.set(-0.2, 0, 0);
 
   return island;

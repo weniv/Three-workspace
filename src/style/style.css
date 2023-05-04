@@ -29,14 +29,12 @@ body {
 }
 
 main {
-  /* position: absolute; */
+  position: absolute;
   width: 80vw;
   height: 100vh;
   /* overflow: scroll;
   overflow-x: hidden; */
   /* scroll-snap-type: y mandatory; */
-  z-index: -3;
-  background-color: pink;
 }
 
 /* header */
@@ -57,6 +55,7 @@ header nav {
 }
 
 header nav div#logo a {
+  color: var(--TextColor);
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -120,7 +119,6 @@ main section {
 /* island */
 main #islandCont {
   width: 100%;
-  background-color: aquamarine;
 }
 
 main #islandCont #island {
@@ -129,7 +127,6 @@ main #islandCont #island {
   width: 60vw;
   height: 70vh;
   margin: 0 auto;
-  background-color: aqua;
 }
 
 /* section 01 */
@@ -183,8 +180,7 @@ main section#secondSection {
 main section#secondSection div.objWrap {
   display: flex;
   height: 60vh;
-  background-color: pink;
-  z-index: -3;
+  /* z-index: -3; */
 }
 
 main section#secondSection div.objWrap ul {
@@ -200,24 +196,30 @@ main section#secondSection div.objWrap ul {
 }
 
 main section#secondSection div.objWrap ul li.textside {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
-  background-color: aquamarine;
 }
 
 main section#secondSection div.objWrap div.obj {
-  width: 20vw;
-  height: 20vw;
-  border: 1px solid darkblue;
+  width: 25vw;
+  height: 25vw;
 }
 
 main section#secondSection div.objWrap ul li p.title {
   font-size: 3rem;
   font-weight: 700;
-  padding-bottom: 2rem;
+  padding-bottom: 5rem;
 }
 
-main section#secondSection div.objWrap ul li pre.description {
-  font-size: 1.5rem;
+main section#secondSection div.objWrap ul li p.alignRight {
+  text-align: right;
+}
+
+main section#secondSection div.objWrap ul li p.description {
+  font-size: 1.2rem;
 }
 
 /* footer */
