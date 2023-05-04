@@ -13,6 +13,8 @@ html {
 }
 
 body {
+  display: flex;
+  justify-content: center;
   overflow-x: hidden;
 }
 
@@ -27,12 +29,14 @@ body {
 }
 
 main {
-  width: 100vw;
+  /* position: absolute; */
+  width: 80vw;
   height: 100vh;
-  overflow: scroll;
-  overflow-x: hidden;
+  /* overflow: scroll;
+  overflow-x: hidden; */
   /* scroll-snap-type: y mandatory; */
   z-index: -3;
+  background-color: pink;
 }
 
 /* header */
@@ -40,16 +44,14 @@ header {
   position: fixed;
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 80vw;
   height: 8vh;
   background-color: var(--ColorWhite);
-  padding: 0 20rem;
 }
 
 header nav {
   display: flex;
   width: 100%;
-  position: relative;
   justify-content: space-between;
   align-items: center;
 }
@@ -112,111 +114,109 @@ main section {
   width: 100vw;
   height: 100vh;
   scroll-snap-align: start;
-  z-index: -2;
+  /* z-index: -2; */
 }
 
 /* island */
-main #firstSection {
-  position: relative;
+main #islandCont {
+  width: 100%;
+  background-color: aquamarine;
 }
 
-main #firstSection #island {
+main #islandCont #island {
   display: flex;
   align-self: center;
   width: 60vw;
   height: 70vh;
   margin: 0 auto;
+  background-color: aqua;
 }
 
 /* section 01 */
-main section#wrap {
+main section#firstSection {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
 }
 
-main section#wrap ul {
+main section#firstSection ul {
   display: flex;
   width: 100%;
-  height: 100%;
-  padding: 5rem 20rem;
-  justify-content: space-between;
+  height: 70%;
   gap: 5rem;
+  justify-content: space-between;
 }
 
-main section#wrap ul li {
+main section#firstSection ul li {
   width: 100%;
   display: grid;
-  grid-template-rows: 2fr 1fr;
-  padding: 5rem;
+  grid-template-rows: 3fr 1fr 0.5fr;
   background-color: var(--SubColor);
   border-radius: 10px;
+  padding: 5rem 0;
   z-index: -2;
 }
 
-main section#wrap ul p {
+main section#firstSection ul p {
   width: 100%;
-  font-size: 1.5rem;
-  padding-top: 2rem;
+  font-size: 3rem;
+  padding-top: 3rem;
   font-weight: 700;
-  background-color: aqua;
+  text-align: center;
 }
 
-main section#wrap ul div.border {
-  width: 100%;
-  height: 100%;
-  border: 1px solid var(--ColorDark);
+main section#firstSection ul li button {
+  width: 80%;
+  font-size: 2rem;
+  border: none;
 }
 
 /* section 02 */
-main section#detail {
+main section#secondSection {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: auto;
-  margin-bottom: 5rem;
 }
 
-main section#detail div.objWrap {
+main section#secondSection div.objWrap {
   display: flex;
   height: 60vh;
-  padding: 2.5rem 20rem;
+  background-color: pink;
+  z-index: -3;
 }
 
-main section#detail div.objWrap ul {
+main section#secondSection div.objWrap ul {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 100%;
-  background-color: var(--SubColor);
   padding: 5rem 5rem;
+  margin: 0 0 5rem 0;
   border-radius: 10px;
-  gap: 2rem;
   z-index: -2;
+  background-color: var(--SubColor);
+  gap: 10rem;
 }
 
-@media screen and (min-width: 1300px) {
-  main section#detail div.objWrap ul {
-    padding: 5rem 20rem;
-  }
-}
-
-main section#detail div.objWrap ul li.textside {
+main section#secondSection div.objWrap ul li.textside {
   width: 100%;
+  background-color: aquamarine;
 }
 
-main section#detail div.objWrap div.obj {
+main section#secondSection div.objWrap div.obj {
   width: 20vw;
   height: 20vw;
   border: 1px solid darkblue;
 }
 
-main section#detail div.objWrap ul li p.title {
+main section#secondSection div.objWrap ul li p.title {
   font-size: 3rem;
   font-weight: 700;
   padding-bottom: 2rem;
 }
 
-main section#detail div.objWrap ul li pre.description {
+main section#secondSection div.objWrap ul li pre.description {
   font-size: 1.5rem;
 }
 

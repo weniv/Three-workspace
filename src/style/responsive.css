@@ -1,0 +1,36 @@
+@media screen and (max-width: 1300px) {
+  main {
+    width: 92vw;
+  }
+
+  /* header */
+  header {
+    width: 92vw;
+  }
+
+  /* island */
+  main #islandCont #island {
+    width: 100%;
+  }
+
+  /* first section */
+  main section#firstSection ul {
+    gap: 2rem;
+    height: 50%;
+  }
+
+  /* second section */
+  main section#secondSection div.objWrap {
+    height: 40vh;
+  }
+  main section#secondSection div.objWrap ul {
+    margin: 0 0 2.5rem 0;
+    gap: 5rem;
+  }
+}
+
+@media screen and (min-width: 1441px) {
+  main section#secondSection div.objWrap ul {
+    padding: 5rem 15rem;
+  }
+}

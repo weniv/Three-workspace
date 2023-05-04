@@ -106,9 +106,20 @@ if (WebGL.isWebGLAvailable()) {
     const stone_one = printStoneOne();
     const stone_two = printStoneTwo();
 
+    const islandPosition = () => {
+      if (matchMedia("screen and (950px <= width <= 1600px)").matches) {
+        island.mesh.position.set(0, -8, -18);
+      } else if (matchMedia("screen and (max-width: 950px)").matches) {
+        island.mesh.position.set(0, -8, -22);
+      } else {
+        island.mesh.position.set(0, -8, -15);
+      }
+    };
+
     // 반응형 처리
     const onWindowResize = (renderer, sceneInfo) => {
       const canvas = renderer.domElement;
+      islandPosition();
       let camera;
       for (const info in sceneInfo) {
         camera = sceneInfo[info].camera;
