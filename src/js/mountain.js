@@ -4,20 +4,15 @@ const printMoutain = () => {
   // 텍스쳐 추가
   const loader = new THREE.TextureLoader();
 
+  const grassBase = loader.load("./src/static/img/Grass_001_COLOR.jpg");
+
+  grassBase.wrapT = THREE.RepeatWrapping;
+  grassBase.wrapS = THREE.RepeatWrapping;
+  grassBase.repeat.set(5, 2);
+
   const meterials = [
-    // 옆면
     new THREE.MeshStandardMaterial({
-      // color: 0x609966,
-      map: loader.load("./src/static/img/mountain.jpg"),
-    }),
-    //
-    new THREE.MeshStandardMaterial({
-      // color: 0x609966,
-      map: loader.load("./src/static/img/mountain_top.jpg"),
-    }),
-    // 아랫면
-    new THREE.MeshStandardMaterial({
-      color: 0x609966,
+      map: grassBase,
     }),
   ];
 

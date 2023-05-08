@@ -8,7 +8,6 @@ cloudTexture.repeat.set(1, 1);
 
 const cloudMaterial = new THREE.MeshStandardMaterial({
   transparent: true,
-  // opacity: 0.8,
   map: cloudTexture,
 });
 
