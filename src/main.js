@@ -106,9 +106,20 @@ if (WebGL.isWebGLAvailable()) {
     const stone_one = printStoneOne();
     const stone_two = printStoneTwo();
 
+    const islandPosition = () => {
+      if (matchMedia("screen and (950px <= width <= 1600px)").matches) {
+        island.mesh.position.set(0, -8, -18);
+      } else if (matchMedia("screen and (max-width: 950px)").matches) {
+        island.mesh.position.set(0, -8, -22);
+      } else {
+        island.mesh.position.set(0, -8, -15);
+      }
+    };
+
     // 반응형 처리
     const onWindowResize = (renderer, sceneInfo) => {
       const canvas = renderer.domElement;
+      islandPosition();
       let camera;
       for (const info in sceneInfo) {
         camera = sceneInfo[info].camera;
@@ -185,6 +196,21 @@ if (WebGL.isWebGLAvailable()) {
       // 애니메이션
       mandarin_two.mesh.rotation.y = time * 0.1;
       mountain_two.mesh.rotation.y = time * 0.1;
+
+      // 버튼 클릭시 실행되는 애니메이션
+      // const mandarinBtn = document.querySelector(".handleMandarin");
+      // const mountainBtn = document.querySelector(".handleMountain");
+      // const stoneBtn = document.querySelector(".handleStone");
+
+      // mandarinBtn.addEventListener("click", () => {
+      //   console.log("clicked mandarin btn");
+      // });
+      // mountainBtn.addEventListener("click", () => {
+      //   console.log("clicked mountain btn");
+      // });
+      // stoneBtn.addEventListener("click", () => {
+      //   console.log("clicked stone btn");
+      // });
 
       renderSceneInfo(island);
       renderSceneInfo(mountain_one);

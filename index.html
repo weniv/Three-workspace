@@ -20,6 +20,7 @@
     <script src="./src/js/lightmode.js" type="module"></script>
 
     <link rel="stylesheet" href="./src/style/style.css" />
+    <link rel="stylesheet" href="./src/style/responsive.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css"
@@ -33,11 +34,12 @@
       <header>
         <nav>
           <div id="logo">
-            <a href="#">EHATIZ</a>
+            <a href="#island">EHATIZ</a>
           </div>
           <ul class="nav_menu">
-            <li><a href="#">section01</a></li>
-            <li><a href="#">section02</a></li>
+            <li><a href="#island">section01</a></li>
+            <li><a href="#firstSection">section02</a></li>
+            <li><a href="#secondSection">section03</a></li>
           </ul>
           <ul class="nav_icon">
             <li>
@@ -46,23 +48,25 @@
               </a>
             </li>
             <li>
-              <a href="#"><i class="bi bi-github"></i></a>
+              <a href="https://github.com/weniv/Three-workspace" target="_blank"
+                ><i class="bi bi-github"></i
+              ></a>
             </li>
           </ul>
         </nav>
       </header>
+
       <!-- island -->
-      <section id="firstSection">
+      <section id="islandCont">
         <div id="island"></div>
       </section>
 
       <!-- section 01 -->
-      <section id="wrap">
-        <ul>
+      <section id="firstSection">
+        <ul class="contWrap">
           <li class="cont">
             <div class="border mandarin_one"></div>
             <p>한라봉</p>
-            <button>move</button>
           </li>
           <li class="cont">
             <div class="border mountain_one"></div>
@@ -76,12 +80,12 @@
       </section>
 
       <!--  section 02 -->
-      <section id="detail">
+      <section id="secondSection">
         <div class="objWrap">
           <ul class="cont">
             <li class="textside">
-              <p class="title">한라봉</p>
-              <p class="description">
+              <p class="title alignRight">한라봉</p>
+              <p class="description alignRight">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
                 text ever since the 1500s, when an unknown printer took a galley
@@ -120,8 +124,8 @@
         <div class="objWrap">
           <ul>
             <li class="textside">
-              <p class="title">돌하르방</p>
-              <p class="description">
+              <p class="title alignRight">돌하르방</p>
+              <p class="description alignRight">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
                 text ever since the 1500s, when an unknown printer took a galley

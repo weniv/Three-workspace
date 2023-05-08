@@ -2,38 +2,40 @@ import { printHouse, lightOn, lightOff } from "./house.js";
 
 let house = printHouse();
 
-const $button = document.querySelector(".lightmode");
+const $lightmode = document.querySelector(".lightmode");
+const $button = document.querySelectorAll("button");
 let $header = document.querySelector("header");
 let $background = document.querySelector("body");
 const $text = document.querySelectorAll("p");
-const $border = document.querySelectorAll(".border");
 const $link = document.querySelectorAll("a");
-const $cont = document.querySelectorAll(".cont");
 
-$button.addEventListener("click", () => {
-  if ($button.classList.contains("light")) {
-    $button.classList.remove("bi-sun-fill");
-    $button.classList.add("bi-sun");
+$lightmode.addEventListener("click", () => {
+  if ($lightmode.classList.contains("light")) {
+    $lightmode.classList.remove("bi-sun-fill");
+    $lightmode.classList.add("bi-sun");
     $background.style.backgroundColor = "var(--ColorWhite)";
     $header.style.backgroundColor = "var(--ColorWhite)";
+    $button.forEach((el) => {
+      (el.style.backgroundColor = "var(--ColorWhite)"),
+        (el.style.color = "var(--TextColor)");
+    });
     $text.forEach((el) => (el.style.color = "var(--TextColor)"));
-
     $link.forEach((el) => (el.style.color = "var(--TextColor)"));
-    $border.forEach((el) => (el.style.border = "1px solid var(--TextColor)"));
-    // $cont.forEach((el) => (el.style.backgroundColor = "var(--TextColor)"));
     lightOff(house);
   } else {
-    $button.classList.remove("bi-sun");
-    $button.classList.add("bi-sun-fill");
+    $lightmode.classList.remove("bi-sun");
+    $lightmode.classList.add("bi-sun-fill");
     $background.style.backgroundColor = "var(--TextColor)";
     $header.style.backgroundColor = "var(--TextColor)";
+    $button.forEach((el) => {
+      (el.style.backgroundColor = "var(--ColorDark)"),
+        (el.style.color = "var(--ColorWhite)");
+    });
     $text.forEach((el) => (el.style.color = "var(--ColorWhite)"));
     $link.forEach((el) => (el.style.color = "var(--ColorWhite)"));
-    $border.forEach((el) => (el.style.border = "1px solid var(--ColorWhite)"));
-    // $cont.forEach((el) => (el.style.backgroundColor = "var(--ColorWhite)"));
     lightOn(house);
   }
-  $button.classList.toggle("light");
+  $lightmode.classList.toggle("light");
 });
 
 export { house };

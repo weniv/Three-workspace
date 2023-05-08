@@ -6,6 +6,7 @@
 /* common */
 button {
   cursor: pointer;
+  z-index: 999;
 }
 
 html {
@@ -13,6 +14,8 @@ html {
 }
 
 body {
+  display: flex;
+  justify-content: center;
   overflow-x: hidden;
 }
 
@@ -22,17 +25,17 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  display: block;
+  /* display: block; */
   z-index: -1;
 }
 
 main {
-  width: 100vw;
+  position: absolute;
+  width: 80vw;
   height: 100vh;
-  overflow: scroll;
-  overflow-x: hidden;
+  /* overflow: scroll;
+  overflow-x: hidden; */
   /* scroll-snap-type: y mandatory; */
-  z-index: -3;
 }
 
 /* header */
@@ -40,21 +43,20 @@ header {
   position: fixed;
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 80vw;
   height: 8vh;
   background-color: var(--ColorWhite);
-  padding: 0 20rem;
 }
 
 header nav {
   display: flex;
   width: 100%;
-  position: relative;
   justify-content: space-between;
   align-items: center;
 }
 
 header nav div#logo a {
+  color: var(--TextColor);
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -64,7 +66,7 @@ header nav ul {
 }
 
 header ul.nav_menu {
-  gap: 5rem;
+  gap: 3rem;
 }
 
 header ul.nav_icon {
@@ -72,6 +74,7 @@ header ul.nav_icon {
 }
 
 header ul.nav_menu li a {
+  color: var(--TextColor);
   font-size: 1.2rem;
 }
 
@@ -112,15 +115,14 @@ main section {
   width: 100vw;
   height: 100vh;
   scroll-snap-align: start;
-  z-index: -2;
 }
 
 /* island */
-main #firstSection {
-  position: relative;
+main #islandCont {
+  width: 100%;
 }
 
-main #firstSection #island {
+main #islandCont #island {
   display: flex;
   align-self: center;
   width: 60vw;
@@ -129,95 +131,95 @@ main #firstSection #island {
 }
 
 /* section 01 */
-main section#wrap {
+main section#firstSection {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
-main section#wrap ul {
+main section#firstSection ul.contWrap {
   display: flex;
-  width: 100%;
-  height: 100%;
-  padding: 5rem 20rem;
   justify-content: space-between;
-  gap: 5rem;
-}
-
-main section#wrap ul li {
   width: 100%;
-  display: grid;
-  grid-template-rows: 2fr 1fr;
-  padding: 5rem;
-  background-color: var(--SubColor);
-  border-radius: 10px;
-  z-index: -2;
-}
-
-main section#wrap ul p {
-  width: 100%;
-  font-size: 1.5rem;
-  padding-top: 2rem;
-  font-weight: 700;
-  background-color: aqua;
-}
-
-main section#wrap ul div.border {
-  width: 100%;
-  height: 100%;
-  border: 1px solid var(--ColorDark);
-}
-
-/* section 02 */
-main section#detail {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: auto;
-  margin-bottom: 5rem;
-}
-
-main section#detail div.objWrap {
-  display: flex;
-  height: 60vh;
-  padding: 2.5rem 20rem;
-}
-
-main section#detail div.objWrap ul {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background-color: var(--SubColor);
-  padding: 5rem 5rem;
-  border-radius: 10px;
+  height: 50%;
   gap: 2rem;
   z-index: -2;
 }
 
-@media screen and (min-width: 1300px) {
-  main section#detail div.objWrap ul {
-    padding: 5rem 20rem;
-  }
+main section#firstSection ul.contWrap li.cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  background-color: var(--SubColor);
+  border-radius: 10px;
+  z-index: -2;
 }
 
-main section#detail div.objWrap ul li.textside {
+main section#firstSection ul.contWrap li.cont div.border {
+  width: 100%;
+  height: 70%;
+  margin: 0 auto;
+  z-index: -2;
+}
+
+main section#firstSection ul.contWrap li.cont p {
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  font-weight: 700;
+}
+
+/* section 02 */
+main section#secondSection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+
+main section#secondSection div.objWrap {
+  width: 100%;
+  display: flex;
+  height: 60vh;
+}
+
+main section#secondSection div.objWrap ul {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 5rem 5rem;
+  margin: 0 0 5rem 0;
+  border-radius: 10px;
+  z-index: -2;
+  background-color: var(--SubColor);
+  gap: 10rem;
+}
+
+main section#secondSection div.objWrap ul li.textside {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
 }
 
-main section#detail div.objWrap div.obj {
-  width: 20vw;
-  height: 20vw;
-  border: 1px solid darkblue;
+main section#secondSection div.objWrap div.obj {
+  width: 25vw;
+  height: 25vw;
 }
 
-main section#detail div.objWrap ul li p.title {
+main section#secondSection div.objWrap ul li p.title {
   font-size: 3rem;
   font-weight: 700;
-  padding-bottom: 2rem;
+  padding-bottom: 5rem;
 }
 
-main section#detail div.objWrap ul li pre.description {
-  font-size: 1.5rem;
+main section#secondSection div.objWrap ul li p.alignRight {
+  text-align: right;
+}
+
+main section#secondSection div.objWrap ul li p.description {
+  font-size: 1.2rem;
 }
 
 /* footer */

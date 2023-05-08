@@ -64,7 +64,6 @@ const printIsland = () => {
   text.position.set(-0.5, 1.3, 9);
 
   // 전체 섬 조작
-  island.position.set(0, -8, -15);
   island.rotation.set(-0.2, 0, 0);
 
   return island;
