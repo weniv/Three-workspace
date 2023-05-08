@@ -12,7 +12,6 @@ const printTree = () => {
 
   leafBase.wrapS = THREE.RepeatWrapping;
   leafBase.wrapT = THREE.RepeatWrapping;
-  leafBase.repeat.set(1, 1);
   leafBase.rotation = 1;
   leafBase.center.set(0.4, 0.5);
   leafBase.repeat.set(0.5, 0.5);
