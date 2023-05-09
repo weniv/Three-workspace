@@ -2,10 +2,28 @@ import * as THREE from "three";
 
 const printTree = () => {
   const tree = new THREE.Group();
+  const loader = new THREE.TextureLoader();
+
+  // texture
+  const baseColor = loader.load("./src/static/img/Wood_026_basecolor.jpg");
+  const height = loader.load("./src/static/img/Wood_026_height.png");
+  const roughness = loader.load("./src/static/img/Wood_026_roughness.jpg");
+  const leafBase = loader.load("./src/static/img/palm_leaf.png");
+
+  leafBase.wrapS = THREE.RepeatWrapping;
+  leafBase.wrapT = THREE.RepeatWrapping;
+  leafBase.rotation = 1;
+  leafBase.center.set(0.4, 0.5);
+  leafBase.repeat.set(0.5, 0.5);
 
   // 나무줄기
   const treeGeometry = new THREE.CylinderGeometry(0.85, 1, 1.5, 32);
-  const treeMaterial = new THREE.MeshBasicMaterial({ color: 0xa38049 });
+  const treeMaterial = new THREE.MeshStandardMaterial({
+    map: baseColor,
+    displacementMap: height,
+    displacementScale: 0.01,
+    roughnessMap: roughness,
+  });
 
   const trunk = new THREE.Group();
   const trunk_1 = new THREE.Mesh(treeGeometry, treeMaterial);
@@ -24,18 +42,19 @@ const printTree = () => {
   trunk.add(trunk_3);
   trunk.add(trunk_4);
   for (const mesh of trunk.children) {
-    mesh.castShadow = true
+    mesh.castShadow = true;
+    trunk.receiveShadow = true;
   }
-
 
   // 잎
   const leafGeometry_1 = new THREE.SphereGeometry(2, 32, 16, Math.PI * 0.5, 1);
   const leafGeometry_2 = new THREE.SphereGeometry(2, 32, 16, Math.PI, 1);
   const leafGeometry_3 = new THREE.SphereGeometry(2, 32, 16, Math.PI * 1.5, 1);
   const leafGeometry_4 = new THREE.SphereGeometry(2, 32, 16, Math.PI * 2, 1);
-  const leafMaterial = new THREE.MeshBasicMaterial({
-    color: 0x6ca06e,
+  const leafMaterial = new THREE.MeshStandardMaterial({
+    transparent: true,
     side: THREE.DoubleSide,
+    map: leafBase,
   });
   const leaf_1 = new THREE.Mesh(leafGeometry_1, leafMaterial);
   const leaf_2 = new THREE.Mesh(leafGeometry_2, leafMaterial);
@@ -59,7 +78,8 @@ const printTree = () => {
   leaf.add(leaf_3);
   leaf.add(leaf_4);
   for (const mesh of leaf.children) {
-    mesh.castShadow = true
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
   }
 
   tree.add(trunk);
@@ -68,8 +88,6 @@ const printTree = () => {
   leaf.rotation.set(0, 0, -0.3);
   leaf.position.set(-1.4, 0.5, 0);
   tree.position.y = -3;
-
-
 
   return tree;
 };

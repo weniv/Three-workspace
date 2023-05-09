@@ -1,13 +1,18 @@
 import * as THREE from "three";
 
 const cloudGrp = new THREE.Group();
+const loader = new THREE.TextureLoader();
+
+const cloudTexture = loader.load("./src/static/img/cloud.png");
+cloudTexture.repeat.set(1, 1);
+
 const cloudMaterial = new THREE.MeshStandardMaterial({
-  color: 0xffffff,
   transparent: true,
-  opacity: 0.8,
+  map: cloudTexture,
 });
 
-const cloudGeometry = new THREE.BoxGeometry(4, 2, 2);
+// const cloudGeometry = new THREE.BoxGeometry(4, 2, 2);
+const cloudGeometry = new THREE.PlaneGeometry(10, 5);
 
 const leftCloud = new THREE.Group();
 const cloud1 = new THREE.Mesh(cloudGeometry, cloudMaterial);
@@ -32,9 +37,5 @@ const handleMove = (time) => {
   leftCloud.position.x = -8 + Math.sin(time * 0.7);
   rightCloud.position.x = 8 + Math.sin(time * 0.2);
 };
-
-// shadow
-cloudGrp.castShadow = true;
-cloudGrp.receiveShadow = true;
 
 export { cloudGrp, handleMove };

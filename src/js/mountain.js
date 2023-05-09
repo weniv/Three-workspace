@@ -4,22 +4,21 @@ const printMoutain = () => {
   // 텍스쳐 추가
   const loader = new THREE.TextureLoader();
 
-  const meterials = [
-    // 옆면
-    new THREE.MeshBasicMaterial({
-      // color: 0x609966,
-      map: loader.load("./src/static/img/mountain.jpg"),
-    }),
-    //
-    new THREE.MeshBasicMaterial({
-      // color: 0x609966,
-      map: loader.load("./src/static/img/mountain_top.jpg"),
-    }),
-    // 아랫면
-    new THREE.MeshBasicMaterial({
-      color: 0x609966,
-    }),
-  ];
+  const grassBase = loader.load("./src/static/img/Grass_001_COLOR.jpg");
+
+  grassBase.wrapT = THREE.RepeatWrapping;
+  grassBase.wrapS = THREE.RepeatWrapping;
+  grassBase.repeat.set(5, 2);
+
+  // const meterials = [
+  //   new THREE.MeshStandardMaterial({
+  //     map: grassBase,
+  //   }),
+  // ];
+
+  const meterials = new THREE.MeshStandardMaterial({
+    map: grassBase,
+  });
 
   const geometry = new THREE.CylinderGeometry(0.6, 2, 2, 8);
   const moutain = new THREE.Mesh(geometry, meterials);

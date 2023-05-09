@@ -5,6 +5,11 @@ const printHouse = () => {
   const house = new THREE.Group();
   const wall = new THREE.Group();
   const loader = new THREE.TextureLoader();
+  // texure
+  const wallBase = loader.load("../src/static/img/Concrete_014_4K_COLOR.jpg");
+  const roofBase = loader.load(
+    "../src/static/img/Thatched_Roof_001_basecolor.jpg"
+  );
   // 집 몸통
   const boxGeometry = new THREE.BoxGeometry(2.8, 1.5, 2.8);
   const boxMaterial = new THREE.MeshStandardMaterial({ color: 0xf9f5eb });
@@ -12,8 +17,8 @@ const printHouse = () => {
   // 지붕
   const roofGeometry = new THREE.ConeGeometry(2.2, 0.8, 4);
   const roofMaterial = new THREE.MeshStandardMaterial({
-    color: 0xea5455,
-    // map: loader.load("../src/static/img/roof_basecolor.jpg"),
+    color: 0xf9f5eb,
+    map: roofBase,
   });
   const roof = new THREE.Mesh(roofGeometry, roofMaterial);
   roof.rotation.set(0, 0.79, 0);
@@ -22,7 +27,7 @@ const printHouse = () => {
   const doorSubtractGeometry = new THREE.BoxGeometry(1.5, 1.3, 5);
   const doorGeometry = new THREE.BoxGeometry(1.5, 1.4, 0.01);
   const doorSubtractMaterial = new THREE.MeshStandardMaterial({
-    color: 0xffdd83,
+    map: wallBase,
   });
   const doorMaterial = new THREE.MeshPhysicalMaterial({
     color: 0xffffff,
@@ -51,7 +56,7 @@ const printHouse = () => {
   canopy.rotation.set(1.2, 0, 0);
   // 앨범
   const frameGeometry = new THREE.BoxGeometry(0.2, 0.3, 0.05);
-  const frameMaterial = new THREE.MeshStandardMaterial({ color: 0xffacac });
+  const frameMaterial = new THREE.MeshStandardMaterial({ color: 0x7c9070 });
   const frame = new THREE.Mesh(frameGeometry, frameMaterial);
   frame.position.set(1, 0.2, -1.4);
   // 초인종
@@ -202,10 +207,9 @@ const printHouse = () => {
   wall.add(wall_left);
   wall.add(wall_front_left);
   wall.position.set(0, 0, 0.15);
-
   house.add(roof);
   house.add(door);
-  house.add(canopy);
+  // house.add(canopy);
   house.add(frame);
   house.add(bell);
   house.add(wall);

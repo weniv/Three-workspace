@@ -8,7 +8,6 @@ const printMandarin = () => {
   // texture
   const loader = new THREE.TextureLoader();
   const baseColor = loader.load("./src/static/img/orange_basecolor.jpg");
-  const nomal = loader.load("./src/static/img/orange_nomal.jpg");
   const rough = loader.load("./src/static/img/orange_rough.jpg");
 
   baseColor.wrapS = THREE.RepeatWrapping;
@@ -24,7 +23,6 @@ const printMandarin = () => {
   const circleMaterial = new THREE.MeshStandardMaterial({
     // color: 0xffb84c,
     map: baseColor,
-    normalMap: nomal,
     roughnessMap: rough,
     roughness: 0.5,
   });
